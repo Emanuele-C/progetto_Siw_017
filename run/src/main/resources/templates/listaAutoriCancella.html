@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html >
+<head>
+    <title>arte e quadri</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" href="stylehome.css"/>
+</head>
+<body style="background-color:#4682B4" >
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="listaOpere.html">Tutte i Quadri <span class="sr-only">(current)</span></a></li>
+     
+      
+        
+      </ul>
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="loginAm.html">log-out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<TABLE borderColor=red  cellSpacing=0 cellPadding=10 width="60%" 
+align= center border=5>
+<tr><td>
+  <div align="center" ><font size="6" face="verdala" color="gold">Tutti gli artisti presenti</font></div>
+</td></tr></TABLE>
+
+<span class="container" style="margin-top:100px " >
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cognome</th>
+	  <th>Nazionalità</th>
+      <th>Data Nascita</th>
+ 	  <th>Data Morte</th>
+    </tr>
+  </thead>
+  <tbody>
+	<th:each var="autore" items="${autori}">
+		
+	<tr>
+		<td th:text="${autore.nome}"/>
+		<td th:text="${autore.cognome}"/>
+		<td th:text="${autore.nazionalita}"/>
+		<td th:text="${autore.dataNascita}"/>
+		<td th:text="${autore.dataMorte}"/>
+		<td><form action="#" th:action="@{/rimuoviAutore}" method="post">
+			<input type="hidden" th:value="${autore.id}" name="id" /> 
+			<button type="button" class="btn btn-danger">Cancella</button>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!--	<ul>
+		<th:each var="autore" items="${autori}">
+			<li><a href="autore?id=${autore.id}" th:text="${autore.nome}${autore.cognome}"/>
+				<form action="autore" method="post">
+					<input type="hidden" value="${autore.id}" name="id" /> 
+					<input type="submit" value="cancella" name="comand"/>
+				</form></li>
+		</c:forEach>
+	</ul>
+ -->
+</span>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  
+   <!-- Latest compiled and minified JavaScript -->
+<script src="js/bootstrap.min.js" ></script>
+</body>
+</html>
